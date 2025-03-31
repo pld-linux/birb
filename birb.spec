@@ -6,12 +6,12 @@
 Summary:	Library of GLib utilities
 Summary(pl.UTF-8):	Biblioteka narzędzi GLib
 Name:		birb
-Version:	0.1.0
+Version:	0.3.1
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://downloads.sourceforge.net/pidgin/%{name}-%{version}.tar.xz
-# Source0-md5:	bcd67abbdf89ffd14d74d48d2f5bb431
+# Source0-md5:	a27ec49be353d78348075ad5b52a0abb
 URL:		https://keep.imfreedom.org/birb/birb/
 # C17
 BuildRequires:	gcc >= 6:7
@@ -21,7 +21,7 @@ BuildRequires:	meson >= 1.0.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
-BuildRequires:	rpmbuild(macros) >= 2.029
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.76.0
@@ -74,16 +74,16 @@ Dokumentacja API biblioteki birb.
 %setup -q
 
 %build
-%meson build \
+%meson \
 	%{!?with_static_libs:--default-library=shared} \
 	%{!?with_apidocs:-Ddocs=false}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 install -d $RPM_BUILD_ROOT%{_gidocdir}
 %{__mv} $RPM_BUILD_ROOT%{_docdir}/birb $RPM_BUILD_ROOT%{_gidocdir}
