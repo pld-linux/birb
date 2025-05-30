@@ -6,12 +6,12 @@
 Summary:	Library of GLib utilities
 Summary(pl.UTF-8):	Biblioteka narzędzi GLib
 Name:		birb
-Version:	0.3.1
+Version:	0.4.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://downloads.sourceforge.net/pidgin/%{name}-%{version}.tar.xz
-# Source0-md5:	a27ec49be353d78348075ad5b52a0abb
+# Source0-md5:	c32563f5378653343ed3105de8c01a49
 URL:		https://keep.imfreedom.org/birb/birb/
 # C17
 BuildRequires:	gcc >= 6:7
